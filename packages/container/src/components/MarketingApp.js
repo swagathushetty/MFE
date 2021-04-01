@@ -1,23 +1,17 @@
 //this function allows us to render from our child application 
 //this function will work with any child framework angulat,vue etc 
 //As long as output is html this function will work
-import React, { useRef, useEffect } from 'react'
-
-import { mount } from 'marketing/MarketingApp'
 
 
+import { mount } from 'marketing/MarketingApp';
+import React, { useRef, useEffect } from 'react';
 
-const MarketingApp = () => {
+export default () => {
+  const ref = useRef(null);
 
   useEffect(() => {
-    mount(ref.current)
-  })
-  const ref = useRef(null)
-  return (
-    <div ref={ref}>
+    mount(ref.current);
+  });
 
-    </div>
-  )
-}
-
-export default MarketingApp
+  return <div ref={ref} />;
+};
