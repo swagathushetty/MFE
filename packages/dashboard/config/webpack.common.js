@@ -1,4 +1,6 @@
 const { VueLoaderPlugin } = require('vue-loader')
+const webpack = require('webpack')
+
 
 module.exports = {
   entry: './src/index.js',
@@ -37,7 +39,11 @@ module.exports = {
       },
     ]
   },
-  plugins: [new VueLoaderPlugin()]
+  plugins: [
+    new webpack.DefinePlugin({
+      __VUE_PROD_DEVTOOLS__: 'false'
+    }),
+    new VueLoaderPlugin()]
 }
 
 
